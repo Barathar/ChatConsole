@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Akka.Actor;
 
 namespace Simulator.Messages
 {
     internal class JoinChat
-    { 
+    {
         public string Chatname { get; private set; }
-        // better use User class here
-        public string Username { get; private set; }
 
-        public JoinChat(string chatname, string username)
+        public JoinChat(string chatname)
         {
             Chatname = chatname;
-            Username = username;
         }
     }
 }

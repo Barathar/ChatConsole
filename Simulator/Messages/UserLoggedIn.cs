@@ -2,11 +2,11 @@
 
 namespace Simulator.Messages
 {
-    internal class UserCreated
+    internal class UserLoggedIn
     { 
         public IActorRef User { get; private set; }
 
-        public UserCreated(IActorRef user)
+        public UserLoggedIn(IActorRef user)
         {
             User = user;
         }

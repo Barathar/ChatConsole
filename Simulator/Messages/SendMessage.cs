@@ -1,13 +1,15 @@
-﻿namespace Simulator.Messages
+﻿using Akka.Actor;
+
+namespace Simulator.Messages
 {
     internal class SendMessage
     {
-        public string Username { get; private set; }
+        public IActorRef User { get; private set; }
         public string Message { get; private set; }
 
-        public SendMessage(string username, string message)
+        public SendMessage(IActorRef user, string message)
         {
-            Username = username;
+            User = user;
             Message = message;
         }
     }

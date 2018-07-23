@@ -9,11 +9,14 @@ namespace Simulator
         static void Main(string[] args)
         {
             var actorSystem = ActorSystem.Create("IDGActorSystem");
-            actorSystem.ActorOf(Props.Create(() => new ChatConsoleActor()));
+            var userManager = actorSystem.ActorOf(Props.Create(() => new UserManagerActor()));
+            var chatRoomManager = actorSystem.ActorOf(Props.Create(() => new ChatRoomManagerActor()));
+            var consoleActor = actorSystem.ActorOf(Props.Create(() => new ChatConsoleActor(userManager, chatRoomManager)));
 
-            while(true)
+            while (true)
             {
-                
+                var line = Console.ReadLine();
+                consoleActor.Tell(new SendConsoleLine(line));
             }
         }
     }

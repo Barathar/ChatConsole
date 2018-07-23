@@ -4,7 +4,7 @@ using System;
 
 namespace Simulator
 {
-    internal class ChatRoomActor : ReceiveActor
+    internal class ChatRoomActor : AbstractReceiveActor
     {
         public string Chatname { get; private set; }
 
@@ -21,8 +21,10 @@ namespace Simulator
 
         private void ShowMessage(SendMessage message)
         {
-
-            Console.WriteLine($"[{DateTime.Now.ToString("HH:mm:ss")}] {message.Username}: {message.Message}");
+            //Console.ForegroundColor = user.Color;
+            //Console.WriteLine($"[{DateTime.Now.ToString("HH:mm:ss")}] {user.Username}: {message.Message}");
+            //Console.ResetColor();
+            Console.WriteLine(message.Message);
         }
     }
 }
